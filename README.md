@@ -1,9 +1,6 @@
 # Your Project's Title...
 Your project's description...
 
-## Environments
-- Preview: https://solution-contact-page-aman--acs-copilot-aman--amans0007.aem.page/
-- Live: https://solution-contact-page-aman--acs-copilot-aman--amans0007.aem.live/
 
 ## Documentation
 
