@@ -1,0 +1,37 @@
+.banner {
+  padding: 20px;
+  text-align: center;
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner .text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.banner .text-container h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner p {
+  font-size: 1em;
+  margin: 0.5em 0;
+}
+
+.banner-link a {
+  position: relative;
+}
+
+.banner-link a .cta-icon {
+  display: inline-block;
+  font-size: 0.8em;
+}

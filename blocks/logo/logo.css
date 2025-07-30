@@ -1,0 +1,82 @@
+.logo {
+  padding: 20px 0;
+  text-align: center;
+  background-color: #000;
+  position: relative; /* Required for the fade effect */
+}
+
+.logo h2 {
+  position: relative;
+  margin-bottom: 40px;
+  font-size: 1.5rem;
+}
+
+.logo-content {
+  position: relative;
+  width: 100%;
+}
+
+/* Container with overflow hidden to clip the slideshow */
+.logo .logo-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Slideshow with all logos */
+.logo .logo-slideshow {
+  display: flex;
+  align-items: center;
+  will-change: transform; /* Performance optimization */
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Individual logo cards */
+.logo .logo-card {
+  flex: 0 0 auto;
+  margin: 0 20px;
+}
+
+/* Logo images */
+.logo .logo-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  filter: grayscale(100%) brightness(1.5); /* Makes logos white */
+}
+
+/* Edge fade effect */
+.logo .logo-container::before,
+.logo .logo-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo .logo-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgb(0 0 0 / 100%), rgb(0 0 0 / 0%));
+}
+
+.logo .logo-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgb(0 0 0 / 100%), rgb(0 0 0 / 0%));
+}
+
+/* Responsive styles */
+@media (width <= 600px) {
+  .logo .logo-card img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .logo .logo-container::before,
+  .logo .logo-container::after {
+    width: 40px; /* Smaller fade effect on mobile */
+  }
+}

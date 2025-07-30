@@ -1,0 +1,37 @@
+.metric > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric > div > div > *{
+  width: 100%;
+  text-align: center;
+}
+
+.metric > div > div > h1 {
+  font-size: 60px;
+  margin: 0;
+  background: var(--gradient-color);
+  background-clip: text;
+}
+
+@media (width >= 900px) {
+  .metric > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 24px;
+  }
+
+  .metric > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .metric > div:not(:first-child) > div {
+    flex-basis: calc(33.33% - 20px);
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+}

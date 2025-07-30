@@ -1,0 +1,163 @@
+.product-hero > div {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: var(--acs-hero-padding);
+    border-radius: var(--acs-hero-border-radius);
+    gap: var(--acs-hero-gap);
+}
+
+.product-hero h1 {
+    font-size: 80px;
+    background: var(--gradient-color);
+    background-clip: text;
+}
+
+/* Target the specific paragraph with inline style */
+.product-hero p[style*="font-size: large"] {
+    font-size: 28px !important; /* Increased from 'large' to a specific pixel size */
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Alternative selector for the subtitle paragraph */
+.product-hero > div > p:not(.button-container) {
+    font-size: 28px !important;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.product-hero > div > div {
+    flex: 2;
+}
+
+.product-hero.left > div {
+    flex-direction: row;
+}
+
+.product-hero.right > div {
+    flex-direction: row-reverse;
+}
+
+/* Product Hero Centre - Container */
+.product-hero.centre {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: var(--acs-hero-center-padding);
+    border-radius: var(--acs-hero-border-radius);
+    width: 90vw;
+    max-width: 1200px;
+    min-width: 320px;
+    z-index: 1;
+}
+
+/* Glowing effect for centre hero */
+.product-hero.centre::before {
+    content: "";
+    position: absolute;
+    inset: var(--acs-hero-glow-inset);
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at var(--acs-hero-pos-purple), var(--acs-hero-glow-purple) 0%, transparent 55%),
+      radial-gradient(ellipse at var(--acs-hero-pos-pink), var(--acs-hero-glow-pink) 0%, transparent 50%),
+      radial-gradient(ellipse at var(--acs-hero-pos-yellow), var(--acs-hero-glow-yellow) 0%, transparent 70%),
+      radial-gradient(ellipse at var(--acs-hero-pos-lavender), var(--acs-hero-glow-lavender) 0%, transparent 60%),
+      radial-gradient(ellipse at var(--acs-hero-pos-orange), var(--acs-hero-glow-orange) 0%, transparent 45%);
+    filter: blur(var(--acs-hero-glow-blur));
+    opacity: var(--acs-hero-glow-opacity);
+}
+
+
+.product-hero.centre > div {
+    background: transparent;
+}
+
+
+.product-hero > div > div:last-of-type {
+    flex: 1;
+}
+
+/* Background Image or Video - Set as Full Background */
+.product-hero.centre > div > div:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: 1200px
+}
+
+/* Box around image */
+.product-hero picture, .product-hero video {
+    width: var(--acs-hero-center-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: var(--acs-hero-border-radius);
+    box-shadow: var(--box-shadow-neon);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Ensure Image and Video Cover the Entire Background */
+.product-hero.centre picture,
+.product-hero.centre img,
+.product-hero.centre video {
+    width: var(--acs-hero-center-width);
+    height: var(--acs-hero-center-height);
+    object-fit: cover;
+    filter: brightness(70%); /* Darkens the background for text readability */
+    border-radius: var(--acs-hero-border-radius);
+}
+
+/* Content Box - Ensures Text is Visible Over the Background */
+.product-hero.centre > div > div:last-of-type {
+    z-index: 1;
+    text-align: left;
+    max-width: var(--acs-hero-center-max-width);
+    padding: var( --acs-corosal-card-padding);
+}
+
+/* Hover effect */
+.product-hero picture:hover, .product-hero video:hover {
+    box-shadow: var(--box-shadow-neon-hover);
+}
+
+
+.product-hero.right {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .product-hero.right::before {
+    content: "";
+    position: absolute;
+    inset: var(--acs-hero-glow-inset);
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse at var(--acs-hero-pos-purple), var(--acs-hero-glow-purple) 0%, transparent 55%),
+      radial-gradient(ellipse at var(--acs-hero-pos-pink), var(--acs-hero-glow-pink) 0%, transparent 50%),
+      radial-gradient(ellipse at var(--acs-hero-pos-yellow), var(--acs-hero-glow-yellow) 0%, transparent 70%),
+      radial-gradient(ellipse at var(--acs-hero-pos-lavender), var(--acs-hero-glow-lavender) 0%, transparent 60%),
+      radial-gradient(ellipse at var(--acs-hero-pos-orange), var(--acs-hero-glow-orange) 0%, transparent 45%);
+    filter: blur(var(--acs-hero-glow-blur));
+    opacity: var(--acs-hero-glow-opacity);
+  }
+
+/* Media queries for responsiveness */
+@media (width <= 768px) {
+    .product-hero h1 {
+        font-size: 48px;
+    }
+    
+    .product-hero p[style*="font-size: large"],
+    .product-hero > div > p:not(.button-container) {
+        font-size: 22px !important;
+    }
+}

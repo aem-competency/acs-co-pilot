@@ -1,0 +1,123 @@
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.5s ease;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+}
+
+.team-carousel-card {
+  min-width: 100%;
+  scroll-snap-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.team-carousel-card-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team-carousel-card-image img {
+  width: 288px;
+  height: 224.25px;
+}
+
+.team-carousel-card-content {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.team-carousel-card-content h2,
+.team-carousel-card-content h3 {
+  margin: 10px 0;
+}
+
+.team-carousel-card-content p {
+  margin: 5px 0;
+}
+
+.carousel-nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+button.carousel-nav {
+  background: rgb(0 0 0 / 50%);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-indicators {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+img.carousel-indicator {
+  width: 35px;
+  height: 35px;
+  background: rgb(0 0 0 / 50%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.carousel-indicator.active {
+  background: white;
+}
+
+@media (width >= 900px) {
+  .team-carousel-card {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .team-carousel-card-image,
+  .team-carousel-card-content {
+    flex: 1;
+  }
+
+  .team-carousel-card-content {
+    padding-left: 20px;
+  }
+
+  .carousel-nav-container {
+    flex-direction: column;
+    position: absolute;
+    bottom: 20%;
+    float: right;
+    right: 5px;
+  }
+
+  .carousel-indicators {
+    flex-direction: column;
+  }
+
+  .team-carousel-card-image img {
+    width: 530px;
+    height: 412.69px;
+  }
+}

@@ -1,0 +1,57 @@
+.summary {
+  padding: 20px;
+  border-radius: var(--acs-hero-border-radius);
+  margin-bottom: var(--acs-summary-margin-bottom);
+  width: var(--acs-hero-center-width);
+  box-sizing: border-box;
+}
+
+.summary h2{
+  margin: 0;
+  background: var(--gradient-color);
+  background-clip: text;
+  font-size: 60px;
+  line-height: var(--acs-summary-h2-line-height);
+}
+
+.summary-description {
+  margin-top: var(--acs-copilot-list-margin-top);
+  font-style: var(--body-font-family);
+}
+ 
+
+ 
+.summary-container .summary-wrapper .summary.left {
+  text-align: left;
+}
+ 
+.summary-container .summary-wrapper .summary.right {
+  text-align: right;
+}
+
+.summary-wrapper .summary.centre {
+  position: relative;
+  z-index: 1;
+}
+
+.summary-wrapper .summary.centre::before {
+  content: "";
+  position: absolute;
+  inset: var(--acs-summary-glow-inset);
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at var(--acs-summary-pos-purple), var(--acs-hero-glow-purple) 0%, transparent 55%),
+    radial-gradient(ellipse at var(--acs-summary-pos-pink), var(--acs-hero-glow-pink) 0%, transparent 50%),
+    radial-gradient(ellipse at var(--acs-summary-pos-yellow), var(--acs-hero-glow-yellow) 0%, transparent 80%),
+    radial-gradient(ellipse at var(--acs-summary-pos-lavender), var(--acs-hero-glow-lavender) 0%, transparent 50%),
+    radial-gradient(ellipse at var(--acs-summary-pos-orange), var(--acs-hero-glow-orange) 0%, transparent 45%);
+  filter: blur(var(--acs-summary-glow-blur));
+  opacity: var(--acs-summary-glow-opacity);
+}
+
+/* Specific styles for summary positions */
+.summary-container .summary-wrapper .summary.centre {
+  text-align: center;
+  padding-block: 30px;
+}

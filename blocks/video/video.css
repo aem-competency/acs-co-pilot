@@ -1,0 +1,122 @@
+/* Align entire video block to the left */
+.video {
+  text-align: left;
+  max-width: var(--acs-feature-center-max-width);
+  margin: var(--acs-video-margin); /* margin-right auto and left 0 pushes block to left */
+}
+
+.video[data-embed-loaded='false']:not(.placeholder) {
+  aspect-ratio: 16 / 9;
+}
+
+.video > div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Ensure native video elements don’t exceed container width */
+.video video {
+  max-width: var(--acs-feature-center-max-width);
+}
+
+/* Placeholder container for the video */
+.video .video-placeholder {
+  width: var(--acs-feature-center-width);
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+/* Center inner content of the placeholder but align overall to left */
+.video .video-placeholder > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+/* Hide placeholder once the embed is loaded */
+.video[data-embed-loaded='true'] .video-placeholder,
+.video[data-embed-loaded='false'] .video-placeholder + * {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
+/* Make sure the placeholder image fills its container */
+.video .video-placeholder picture img {
+  width: var(--acs-feature-center-width);
+  height: var(--acs-feature-center-height);
+  object-fit: cover;
+}
+
+/* Styling for the play button overlay */
+.video .video-placeholder-play button {
+  position: relative;
+  display: block;
+  width: var(--acs-video-play-button-width);
+  height: var(--acs-video-play-button-height);
+  border-radius: var(--acs-video-play-button-border-radius);
+  outline: 2px solid;
+  padding: 0;
+}
+
+/* Create a triangle inside the play button */
+.video .video-placeholder-play button::before {
+  content: '';
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 0;
+  height: var(--acs-video-play-button-height);
+  border-top: var(--acs-video-play-button-border-top);
+  border-bottom: var(--acs-video-play-button-border-bottom);
+  border-left: var(--acs-video-play-button-border-left);
+  top: 50%;
+  left: calc(50% + var(--acs-video-play-button-border-left-offset));
+  transform: translate(-50%, -50%);
+}
+
+/* Optional: Style for the heading if needed */
+.video h1 {
+  text-align: left;
+  margin: var(--acs-video-h1-margin);
+}
+
+/* Variations for video block */
+.right.video {
+  text-align: right;
+  margin: var(--acs-video-margin); /* margin-left auto and right 0 pushes block to right */
+}
+
+.right.video > div {
+  justify-content: flex-end;
+}
+
+.centre.video {
+  text-align: center;
+  margin: var(--acs-video-margin); /* center the block */
+  position: relative;
+  z-index: 1;
+}
+
+.centre.video > div {
+  justify-content: center;
+}
+
+.centre.video::before {
+  content: "";
+  position: absolute;
+  inset: var(--acs-video-glow-inset);
+  z-index: -1;
+  pointer-events: none;
+background:
+  radial-gradient(ellipse at var(--acs-video-pos-purple), var(--acs-hero-glow-purple) 0%, transparent 55%),
+    radial-gradient(ellipse at var(--acs-video-pos-pink), var(--acs-hero-glow-pink) 0%, transparent 50%),
+    radial-gradient(ellipse at var(--acs-video-pos-yellow), var(--acs-hero-glow-yellow) 0%, transparent 50%),
+    radial-gradient(ellipse at var(--acs-video-pos-lavender), var(--acs-hero-glow-lavender) 0%, transparent 60%),
+    radial-gradient(ellipse at var(--acs-video-pos-orange), var(--acs-hero-glow-orange) 0%, transparent 45%);
+filter: blur(var(--acs-video-glow-blur));
+  opacity: var(--acs-video-glow-opacity);
+}
+

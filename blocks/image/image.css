@@ -1,0 +1,80 @@
+body {
+    background-color: black;
+    color: white; /* Optional: Ensures text is visible on black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .image.left {
+    justify-content: flex-start;
+    padding: 50px;
+  }
+  
+  .image.right {
+    justify-content: flex-end;
+    padding: 50px;
+  }
+  
+  .image.center {
+    justify-content: center;
+    padding: 50px;
+    
+  }
+  
+  .image img {
+    max-width: 100%;
+    height: 400px;
+    width: 600px;
+    border-radius: 10px; /* Optional: Adds rounded corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .image img:hover {
+    transform: scale(1.05); /* Slight zoom-in effect */
+    box-shadow: 0 10px 20px rgba(173 53 121); /* Glowing effect */
+    border: 2px solid rgba(23 150 205); /* Glowing border */
+  }
+  
+  .image.bg {
+    position: relative;
+    justify-content: center;
+    padding: 50px;
+    width: 100%;
+    height: 400px; /* Adjust as needed */
+    overflow: hidden; /* Prevents any overflow issues */
+  }
+  
+  /* Pseudo-element for blurred background inside the div */
+  .image.bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./media_14aaa287724e91285efe37f3e9c3bb07aa030a449.jpeg"); /* Ensure correct path */
+    background-size: cover;
+    background-position: center;
+    filter: blur(10px);
+    opacity: 0.5; /* Adjust transparency as needed */
+    z-index: -1; /* Push behind foreground image */
+  }
+  

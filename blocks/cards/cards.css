@@ -1,27 +1,91 @@
-.cards > ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+.cards-container {
+  text-align: center;
+  padding: 20px;
+  background: var(--acs-body-background);
+  border-radius: 10px;
+  color: var(--acs-copilot-body-text-color);
+  font-family: var(--body-font-family);
 }
 
-.cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
+/* Carousel Wrapper */
+.cards-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.cards .cards-card-body {
-  margin: 16px;
+/* Cards Container */
+.cards-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
 }
 
-.cards .cards-card-image {
-  line-height: 0;
+/* Individual Card */
+.cards-card {
+  background: var(--acs-body-background);
+  padding: var(--acs-corosal-card-padding);
+  border-radius: var(--acs-corosal-card-border-radius);
+  max-width: var(--acs-corosal-card-max-width);
+  flex: 1;
+  display: none;
+  transition: transform 0.3s ease;
 }
 
-.cards > ul > li img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+.cards-card:hover {
+  transform: scale(1.05);
+}
+
+/* Card Image */
+.cards-card .card-image {
+  width: var(--acs-corosal-card-image-width);
+  height: var(--acs-corosal-card-image-height);
+  border-radius: var(--acs-corosal-card);
+  box-shadow: var(--box-shadow-neon);
+  transition: box-shadow 0.3s ease;
+}
+
+.cards-card .card-image:hover {
+  box-shadow: var(--box-shadow-neon-hover);
+}
+
+/* Navigation Buttons */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--acs-corosal-button-width);
+  height: var(--acs-corosal-button-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Previous Button */
+.carousel-prev {
+  left: -32px;
+}
+
+/* Next Button */
+.carousel-next {
+  right: -32px;
+}
+
+/* Navigation Button Images */
+.carousel-prev-icon,
+.carousel-next-icon {
+  width: var(--acs-corosal-button-width);
+  height: var(--acs-corosal-button-icon-height);
+  object-fit: contain;
+  display: block;
+  opacity: 1;
+  filter: none;
+  padding-left: var(--acs-corosal-button-icon-padding-left);
+  padding-right: var(--acs-corosal-button-icon-padding-right);
 }

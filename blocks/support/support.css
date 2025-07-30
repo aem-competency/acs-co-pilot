@@ -1,0 +1,145 @@
+.section.support-container {
+    justify-content: var(--form-justify-content);
+    display: flex;
+    flex-direction: var(--acs-copilot-form-flex-direction);
+    background: var(--form-background-color);
+    min-height: calc(100vh - (215px));
+}
+
+.section.support-container.contact-us {
+    min-height: unset;
+    justify-content: flex-start;
+}
+
+.section.support-container form {
+    width: var(--acs-copilot-input-width);
+    padding-bottom: var(--acs-copilot-form-padding-bottom);
+    padding-top: var(--acs-copilot-form-padding-top);
+    display: flex;
+    flex-direction: var(--acs-copilot-form-flex-direction);
+    gap: var(--acs-copilot-form-gap-1);
+    margin: 0 auto;
+}
+
+
+.section.support-container .heading-wrapper {
+    position: relative;
+
+    h1 {
+        color: var(--acs-copilot-primary-text-color);
+        font-size: var(--acs-copilot-font-size-h1);
+        font-weight: var(--acs-copilot-font-weight-h1);
+        margin-bottom: var(--acs-copilot-blockquote-paragraph-margin-bottom);
+        margin-top: var(--acs-copilot-h1-margin-top);
+        text-align: center;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: var(--acs-summary-glow-inset);
+            z-index: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at var(--acs-summary-pos-purple), var(--acs-hero-glow-purple) 0%, transparent 55%),
+                radial-gradient(ellipse at var(--acs-summary-pos-pink), var(--acs-hero-glow-pink) 0%, transparent 50%),
+                radial-gradient(ellipse at var(--acs-summary-pos-yellow), var(--acs-hero-glow-yellow) 0%, transparent 80%),
+                radial-gradient(ellipse at var(--acs-summary-pos-lavender), var(--acs-hero-glow-lavender) 0%, transparent 50%),
+                radial-gradient(ellipse at var(--acs-summary-pos-orange), var(--acs-hero-glow-orange) 0%, transparent 45%);
+            filter: blur(var(--acs-summary-glow-blur));
+            opacity: var(--acs-summary-glow-opacity);
+        }
+    }
+
+}
+
+.section.support-container h1+p {
+    color: var(--acs-copilot-primary-text-color);
+    font-size: var(--acs-copilot-list-font-size);
+    font-weight: var(--acs-copilot-button-container-font-weight);
+    text-align: center;
+    text-shadow: var(--acs-copilot-text-shadow);
+
+}
+
+
+.section.support-container .field-wrapper {
+    display: flex;
+    flex-direction: var(--acs-copilot-form-flex-direction);
+    width: var(--acs-copilot-input-width);
+}
+
+
+.section.support-container label {
+    color: var(--acs-copilot-primary-text-color);
+    font-size: var(--acs-copilot-list-font-size);
+    font-weight: var(--acs-copilot-button-container-font-weight);
+    margin-bottom: var(--acs-copilot-blockquote-paragraph-margin-bottom);
+    text-align: left;
+    display: flex;
+    text-shadow: var(--acs-copilot-text-shadow);
+
+}
+
+.section.support-container input,
+.section.support-container textarea,
+.section.support-container select {
+    width: var(--acs-copilot-input-width);
+    padding: 18px 15px;
+    background: var(--acs-copilot-form-input-filed-background);
+    border: none;
+    border-radius: var(--acs-copilot-input-border-radius);
+    color: var(--acs-copilot-body-text-color);
+    font-size: var(--acs-copilot-list-font-size);
+    margin-bottom: var(--acs-copilot-blockquote-paragraph-margin-bottom);
+    box-sizing: border-box;
+    outline: none;
+    transition: box-shadow 0.2s;
+    opacity: 0.5;
+    box-shadow: var(--acs-copilot-text-shadow);
+
+}
+
+.section.support-container button {
+    background: var(--acs-copilot-form-button-background);
+    color: var(--acs-copilot-body-text-color);
+    padding: var(--acs-copilot-button-padding-support);
+    border: none;
+    border-radius: var(--acs-copilot-input-border-radius);
+    font-size: var(--acs-copilot-list-font-size);
+    font-weight: var(--acs-copilot-font-weight-h4);
+    cursor: pointer;
+    width: var(--acs-copilot-input-width);
+    margin: var(--acs-copilot-blockquote-margin);
+    transition: background 0.2s;
+
+}
+
+.section.support-container button:hover {
+    background: var(--acs-copilot-primary-bg-color);
+}
+
+.section.support-container #form-message {
+    resize: vertical;
+    min-height: 120px;
+    max-height: 400px;
+}
+
+
+.section.support-container select {
+    appearance: var(--acs-copilot-default-arrow-appearance);
+    background-image: var(--acs-copilot-dropdown-arrow-image);
+    background-repeat: var(--acs-copilot-arrow-background-repeat);
+    background-position: var(--acs-copilot-arrow-background-position);
+    cursor: var(--acs-copilot-form-cursor);
+}
+
+.section.support-container input::placeholder,
+.section.support-container textarea::placeholder {
+    color: var(--acs-copilot-body-text-color);
+}
+
+.section.support-container input:focus,
+.section.support-container textarea:focus,
+.section.support-container select:focus {
+    box-shadow: var(--box-shadow-1);
+}

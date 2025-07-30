@@ -1,0 +1,28 @@
+.optimized-did-you-know {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgb(0 0 0 / 10%);
+  flex-direction: column;
+}
+
+.optimized-did-you-know picture,
+.did-you-know-text {
+  max-width: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.optimized-did-you-know img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.did-you-know-text {
+  display: none; /* Initially hidden */
+  padding: 10px;
+}

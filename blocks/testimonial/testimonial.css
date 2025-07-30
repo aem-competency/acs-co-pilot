@@ -1,0 +1,121 @@
+/* Testimonial Section Background */
+.testimonial {
+  padding: 30px 15px;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Scroll Wrapper */
+.testimonial-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 15px 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Scroll Container */
+.testimonial-scroll {
+  display: flex;
+  white-space: nowrap;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  border: 1px solid var(--acs-testimonail-card-border-color);
+  padding: 20px;
+  margin: 12px;
+  border-radius: 10px;
+  min-width: 300px;
+  max-width: 450px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  height: 180px;
+  cursor: default;
+
+  & img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+
+  &:hover {
+  transform: translateY(-5px);
+    background:
+      radial-gradient(ellipse at var(--acs-content-pos-purple), var(--acs-hero-glow-purple) 0%, transparent 55%),
+      radial-gradient(ellipse at var(--acs-content-pos-pink), var(--acs-hero-glow-pink) 0%, transparent 50%),
+      radial-gradient(ellipse at var(--acs-content-pos-yellow), var(--acs-hero-glow-yellow) 0%, transparent 50%),
+      radial-gradient(ellipse at var(--acs-content-pos-lavender), var(--acs-hero-glow-lavender) 0%, transparent 60%),
+      radial-gradient(ellipse at var(--acs-content-pos-orange), var(--acs-hero-glow-orange) 0%, transparent 45%);
+  }
+
+}
+
+.testimonial-content {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  justify-content: space-between;
+}
+
+.testimonial-content .quote {
+  line-height: 1.4;
+  color: var(--acs-copilot-primary-text-color, #f0f0f0);
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.testimonial-author {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.author-info {
+  text-align: right;
+}
+
+.author-info .author-name {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--acs-copilot-primary-text-color, #f0f0f0);
+}
+
+.author-info .author-role {
+  margin: 2px 0 0;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+.testimonial-scroll .testimonial-content-wrapper {
+  display: flex;
+  animation: scroll-left 100s linear infinite;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+  
+  to {
+    transform: translateX(-50%);
+  }
+}

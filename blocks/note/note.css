@@ -1,0 +1,68 @@
+.note-container {
+  background-color: black;
+  color: rgb(204 116 116);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+ 
+.note-container .note-wrapper .note p img {
+  width: 20px;
+  height: 20px;
+}
+
+.note-content {
+  background-color: #fff; /* White background */
+  color: #000; /* Black text */
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0 0 0 0.1);
+  position: relative;
+}
+
+.icon-container {
+  flex: 0 0 24px;
+  margin-right: 15px;
+}
+
+.text-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+ 
+.text-container p {
+  margin: 0;
+}
+ 
+.text-container a {
+  color: cyan;
+  text-decoration: underline;
+}
+ 
+.text-container a:hover {
+  color: #000;
+}
+ 
+.note-icon {
+  width: 24px; /* Adjust size as needed */
+  height: 24px; /* Adjust size as needed */
+}
+ 
+.close-button {
+  background: none;
+  border: none;
+  color: #000;
+  font-size: 20px;
+  line-height: 20px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}

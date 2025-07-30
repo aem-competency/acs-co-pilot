@@ -1,20 +1,151 @@
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+  background-color: #222;
+  color: #999;
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer {
+  position: relative;
+  width: 100%;
+  padding: 20px 32px;
 }
 
-footer .footer p {
+/* Make the default-content-wrapper a flex container with three sections */
+footer .footer .default-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+footer .section.footer-social-container{
   margin: 0;
 }
 
+/* Navigation menu styling - centered in the middle column */
+footer .footer .default-content-wrapper ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  grid-column: 2;
+}
+
+/* Footer bottom with copyright and back to top */
+footer .footer p,
+footer .footer .footer-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: small;
+  color: #999;
+}
+
+/* Position the paragraph in the third column */
+footer .footer .default-content-wrapper p {
+  grid-column: 3;
+  text-align: right;
+}
+
+footer .footer .default-content-wrapper > ul li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+}
+
+footer .footer .default-content-wrapper > ul li a {
+  color: var(--acs-copilot-primary-text-color);
+  text-decoration: none;
+  font-size: 16px;
+  transition: var(--acs-copilot-link-transition);
+}
+
+/* Add purple hover effect like header */
+footer .footer .default-content-wrapper > ul li a:hover {
+  color: var(--acs-copilot-link-hover-color);
+  padding: 2px;
+  border-bottom: 2px solid var(--acs-copilot-link-hover-color);
+}
+
+/* Copyright text */
+footer .footer .copyright {
+  color: #999;
+  margin-right: 16px;
+}
+
+/* Back to top link */
+footer .footer .back-to-top {
+  display: flex;
+  align-items: center;
+  color: #999;
+  text-decoration: none;
+  font-size: small;
+
+  /* Removed transition to prevent any hover effect */
+  transition: none;
+  pointer-events: auto; /* Ensure it's still clickable */
+}
+
+/* Completely disable hover effect */
+footer .footer .back-to-top:hover,
+footer .footer .back-to-top:focus,
+footer .footer .back-to-top:active {
+  color: #999 ;
+  text-decoration: none ;
+  border: none ;
+  background: transparent;
+  outline: none;
+}
+
+/* Back to top icon */
+footer .footer .back-to-top-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+  margin-left: 10px;
+  background-color: var(--acs-body-background);
+  color: var(--acs-copilot-primary-text-color);
+  font-size: 14px;
+  border-radius: 20px;
+}
+
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer .default-content-wrapper > ul {
+    gap: 60px;
+  }
+}
+
+/* Mobile responsiveness */
+@media (width < 768px) {
+  footer .footer .default-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  footer .footer .default-content-wrapper ul {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  footer .footer p {
+    justify-content: center;
+  }
+  
+  footer .footer .default-content-wrapper p {
+    grid-column: unset;
+    text-align: center;
   }
 }
