@@ -19,8 +19,12 @@
   font-style: var(--body-font-family);
 }
  
+.summary-wrapper .summary.left,
+.summary-wrapper .summary.center {
+  position: relative;
+  z-index: 1;
+}
 
- 
 .summary-container .summary-wrapper .summary.left {
   text-align: left;
 }
@@ -29,12 +33,10 @@
   text-align: right;
 }
 
-.summary-wrapper .summary.centre {
-  position: relative;
-  z-index: 1;
-}
 
-.summary-wrapper .summary.centre::before {
+.summary-wrapper .summary.left::before,
+.summary-wrapper .summary.center::before
+ {
   content: "";
   position: absolute;
   inset: var(--acs-summary-glow-inset);

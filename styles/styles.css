@@ -20,6 +20,7 @@
   /* Regular weight */
   --acs-copilot-body-text-color: #fff;
   --acs-copilot-body-bg-color: #000e22;
+  --acs-copilot-body-text-secondary-color: #94a3b8;
 
   /* Body Spacing */
   --acs-copilot-body-margin: 0;
@@ -87,6 +88,7 @@
   --box-shadow-1: 0px 0px 10px rgb(255 255 255 80%);
   --box-shadow-neon: 0 10px 30px #c832fa80; /* Neon glow effect */
   --box-shadow-neon-hover: 0 15px 40px #c832fab3;
+  --card-box-shadow: 0 5px 12px #c832fab3;
 
   /* Primary Button (Solid & Bold) */
   --acs-copilot-primary-bg-color: #EB1000;
