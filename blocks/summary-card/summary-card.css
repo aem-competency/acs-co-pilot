@@ -1,0 +1,36 @@
+.summary-cards {
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: var(--card-box-shadow);
+    
+    .summary-list-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .summary-detail {
+            border-radius: 10px;
+            padding: 10px 15px;
+            background-color: var(--acs-testimonail-card-border-color);
+
+            p {
+                margin: 0;
+            }
+
+            p:first-of-type {
+                font-size: 20px;
+            }
+
+            p:last-of-type {
+                font-size: 16px;
+                color: var(--acs-copilot-body-text-secondary-color)
+            }
+        }
+    }
+
+    h3{
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+}

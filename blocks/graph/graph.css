@@ -1,0 +1,40 @@
+.graph {
+    border-radius: 15px;
+    padding: 15px 20px;
+    box-shadow: var(--card-box-shadow);
+    height: 100%;
+
+    img {
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    p {
+        color: var(--acs-copilot-body-text-secondary-color) !important;
+        margin: 0;
+    }
+
+    h3{
+        margin: 0;
+    }
+}
+
+.graph-wrapper{
+    margin: 0 !important;
+}
+
+.section.graph-container.summary-card-container{
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: var(--default-max-width);
+
+    .graph-wrapper{
+        flex: 2;
+    }
+
+    .summary-card-wrapper{
+        flex: 1;
+    }
+}
