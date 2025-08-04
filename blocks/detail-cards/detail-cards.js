@@ -11,7 +11,19 @@ const buildDetailCard = (detailElement) => {
   percentDiv.append(img);
   percentValue.classList.add('percent');
   percentDiv.append(percentValue);
-  detailCard.append(percentDiv, ...others);
+  const textElements = others.filter((el) => el.textContent?.trim());
+
+  if (others.length > 2) {
+    const subTextEl = textElements.at(0);
+    subTextEl.classList.add('sub-text');
+    const mainTextEl = textElements.at(1);
+    mainTextEl.classList.add('main-text');
+  } else {
+    const mainTextEl = textElements.at(0);
+    mainTextEl.classList.add('main-text');
+  }
+  detailCard.append(percentDiv, ...textElements);
+
   return detailCard;
 };
 
@@ -23,12 +35,8 @@ export default async function decorate(block) {
   const details = block.children;
   const detailContainer = document.createElement('div');
   detailContainer.classList.add('detail-container');
-
   const detailCards = Array.from(details).map((element) => buildDetailCard(element));
-
   detailContainer.append(...detailCards);
-
   block.replaceChildren();
-
   block.appendChild(detailContainer);
 }
