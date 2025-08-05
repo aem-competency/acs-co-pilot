@@ -117,7 +117,7 @@ img.carousel-indicator {
   }
 
   .team-carousel-card-image img {
-    width: 530px;
-    height: 412.69px;
+    width: 400px;
+    height: auto;
   }
 }
