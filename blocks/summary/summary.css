@@ -57,3 +57,11 @@
   text-align: center;
   padding-block: 30px;
 }
+
+.summary.highlight {
+  p {
+    strong{
+      color : #ff8585;
+    }
+  }
+}
