@@ -22,7 +22,7 @@ async function createForm(formHref) {
  * @param {HTMLFormElement} form - The form element to extract data from.
  * @returns {Object} - The form data as an object.
  */
-function generatePayload(form) {
+export function generatePayload(form) {
   return [...form.elements].reduce((payload, field) => {
     if (field.name && field.type !== 'submit' && !field.disabled) {
       if (field.type === 'radio' && field.checked) {
@@ -50,16 +50,28 @@ async function handleSubmit(form) {
   submit.disabled = true;
 
   try {
-    const response = await fetch(form.dataset.action, {
-      method: 'POST',
-      body: JSON.stringify({ data: generatePayload(form) }),
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (!response.ok) throw new Error(await response.text());
-
-    if (form.dataset.confirmation) window.location.href = form.dataset.confirmation;
-  } catch (e) {
-    // eslint-disable-next-line no-empty
+    // Create and show success message
+    const successMessage = document.createElement('div');
+    successMessage.className = 'form-success-message';
+    successMessage.textContent = 'Your form has been submitted successfully!';
+    form.parentNode.insertBefore(successMessage, form.nextSibling);
+    // Reset the form
+    form.reset();
+    // Remove success message after 5 seconds
+    setTimeout(() => {
+      successMessage.remove();
+    }, 5000);
+    // Optional: Scroll to success message
+    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch {
+    // Create error message in case something fails
+    const errorMessage = document.createElement('div');
+    errorMessage.className = 'form-error-message';
+    errorMessage.textContent = 'Something went wrong. Please try again.';
+    form.parentNode.insertBefore(errorMessage, form.nextSibling);
+    setTimeout(() => {
+      errorMessage.remove();
+    }, 5000);
   } finally {
     form.dataset.submitting = 'false';
     submit.disabled = false;
