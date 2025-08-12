@@ -54,7 +54,7 @@ async function handleSubmit(form) {
     const successMessage = document.createElement('div');
     successMessage.className = 'form-success-message';
     successMessage.textContent = 'Your form has been submitted successfully!';
-    form.parentNode.insertBefore(successMessage, form.nextSibling);\  
+    form.parentNode.insertBefore(successMessage, form.nextSibling);  
     // Reset the form
     form.reset();
     // Remove success message after 5 seconds
