@@ -53,7 +53,7 @@
 }
 
 /* Specific styles for summary positions */
-.summary-container .summary-wrapper .summary.centre {
+.summary-container .summary-wrapper .summary.center {
   text-align: center;
   padding-block: 30px;
 }
