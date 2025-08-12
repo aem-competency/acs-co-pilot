@@ -54,16 +54,13 @@ async function handleSubmit(form) {
     const successMessage = document.createElement('div');
     successMessage.className = 'form-success-message';
     successMessage.textContent = 'Your form has been submitted successfully!';
-    form.parentNode.insertBefore(successMessage, form.nextSibling);
-    
+    form.parentNode.insertBefore(successMessage, form.nextSibling);\  
     // Reset the form
     form.reset();
-    
     // Remove success message after 5 seconds
     setTimeout(() => {
       successMessage.remove();
     }, 5000);
-    
     // Optional: Scroll to success message
     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
   } catch (e) {
@@ -72,7 +69,6 @@ async function handleSubmit(form) {
     errorMessage.className = 'form-error-message';
     errorMessage.textContent = 'Something went wrong. Please try again.';
     form.parentNode.insertBefore(errorMessage, form.nextSibling);
-    
     setTimeout(() => {
       errorMessage.remove();
     }, 5000);
