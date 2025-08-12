@@ -1,6 +1,6 @@
 .summary-cards {
     border-radius: 15px;
-    padding: 15px;
+    padding: 21px;
     box-shadow: var(--card-box-shadow);
 
     .summary-list-container {
