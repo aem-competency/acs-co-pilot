@@ -71,6 +71,10 @@
   line-height: 1.5;
 }
 
+.testimonial-content p strong {
+  color: #ff8585 !important;
+}
+
 @media (width >= 768px) {
   .testimonial-entry {
     flex-direction: row;
