@@ -22,7 +22,7 @@ async function createForm(formHref) {
  * @param {HTMLFormElement} form - The form element to extract data from.
  * @returns {Object} - The form data as an object.
  */
-function generatePayload(form) {
+export function generatePayload(form) {
   return [...form.elements].reduce((payload, field) => {
     if (field.name && field.type !== 'submit' && !field.disabled) {
       if (field.type === 'radio' && field.checked) {
@@ -54,7 +54,7 @@ async function handleSubmit(form) {
     const successMessage = document.createElement('div');
     successMessage.className = 'form-success-message';
     successMessage.textContent = 'Your form has been submitted successfully!';
-    form.parentNode.insertBefore(successMessage, form.nextSibling);  
+    form.parentNode.insertBefore(successMessage, form.nextSibling);
     // Reset the form
     form.reset();
     // Remove success message after 5 seconds
@@ -63,7 +63,7 @@ async function handleSubmit(form) {
     }, 5000);
     // Optional: Scroll to success message
     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  } catch (e) {
+  } catch {
     // Create error message in case something fails
     const errorMessage = document.createElement('div');
     errorMessage.className = 'form-error-message';
