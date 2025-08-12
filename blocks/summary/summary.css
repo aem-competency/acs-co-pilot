@@ -1,7 +1,6 @@
 .summary {
   padding: 20px;
   border-radius: var(--acs-hero-border-radius);
-  margin-bottom: var(--acs-summary-margin-bottom);
   width: var(--acs-hero-center-width);
   box-sizing: border-box;
 }
@@ -55,7 +54,7 @@
 /* Specific styles for summary positions */
 .summary-container .summary-wrapper .summary.center {
   text-align: center;
-  padding-block: 30px;
+  
 }
 
 .summary.highlight {
