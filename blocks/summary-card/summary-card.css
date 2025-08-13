@@ -16,6 +16,10 @@
             p {
                 margin: 0;
             }
+            
+            p strong {
+                color: #ff8585 !important;
+            }
 
             p:first-of-type {
                 font-size: 20px;
