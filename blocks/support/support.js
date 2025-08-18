@@ -38,18 +38,60 @@ export function generatePayload(form) {
 }
 
 /**
- * TO IMPLEMENT
  * Handles form submission, sends the form data as a JSON payload via a POST request.
  * @param {HTMLFormElement} form - The form element being submitted.
  */
-async function handleSubmit(form) {
+function handleSubmit(form) {
   if (form.dataset.submitting === 'true') return;
 
   const submit = form.querySelector('button[type="submit"]');
   form.dataset.submitting = 'true';
   submit.disabled = true;
 
-  try {
+  // Extract form data for API submission
+  const messageElement = form.querySelector('#form-message');
+  const nameElement = form.querySelector('#form-name');
+  const emailElement = form.querySelector('#form-email');
+  const categoryElement = form.querySelector('#form-category');
+  
+  // Create payload for API
+  // Extract username part from email (everything before @)
+  let emailValue = '';
+  if (emailElement && emailElement.value) {
+    // Split the email at @ and take the first part
+    emailValue = emailElement.value.split('@')[0] || '';
+  }
+  
+  const payload = {
+    "token_size": 0,
+    "prompt": messageElement ? messageElement.value : '',
+    "type": "site-user-form",
+    "path": nameElement ? nameElement.value : '',
+    "userid": emailValue, // Only use the part before @ in email
+    "version": categoryElement ? categoryElement.value : ''
+  };
+  
+  // API endpoint and key
+  const API_URL = 'http://acs-mcp.corp.adobe.com:8000/entry';
+  const API_KEY = '8bc7a5a1-04bf-4d0e-8553-97237362cb7e';
+  
+  // Send data to API directly without proxy
+  fetch(API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-API-Key': API_KEY,
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(() => {
     // Create and show success message
     const successMessage = document.createElement('div');
     successMessage.className = 'form-success-message';
@@ -63,19 +105,30 @@ async function handleSubmit(form) {
     }, 5000);
     // Optional: Scroll to success message
     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  } catch {
+  })
+  .catch((error) => {
     // Create error message in case something fails
     const errorMessage = document.createElement('div');
     errorMessage.className = 'form-error-message';
-    errorMessage.textContent = 'Something went wrong. Please try again.';
+    
+    // Check if it's a CORS error (this is a common pattern for detecting CORS issues)
+    if (error.message.includes('NetworkError') || error.message.includes('CORS')) {
+      errorMessage.textContent = 'CORS error: Unable to connect to the server. This is likely a Cross-Origin Resource Sharing (CORS) issue.';
+      console.error('CORS error detected:', error);
+    } else {
+      errorMessage.textContent = 'Something went wrong. Please try again.';
+      console.error('Form submission error:', error);
+    }
+    
     form.parentNode.insertBefore(errorMessage, form.nextSibling);
     setTimeout(() => {
       errorMessage.remove();
     }, 5000);
-  } finally {
+  })
+  .finally(() => {
     form.dataset.submitting = 'false';
     submit.disabled = false;
-  }
+  });
 }
 
 /**
