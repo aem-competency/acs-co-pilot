@@ -74,7 +74,6 @@ function handleSubmit(form) {
   // API endpoint and key
   const API_URL = '/api/entry-proxy';
   const API_KEY = '8bc7a5a1-04bf-4d0e-8553-97237362cb7e';
-
   // Send data to API directly without proxy
   fetch(API_URL, {
     method: 'POST',
