@@ -72,7 +72,7 @@ function handleSubmit(form) {
   };
 
   // API endpoint and key
-  const API_URL = 'http://acs-mcp.corp.adobe.com:8000/entry';
+  const API_URL = 'https://acs-mcp.corp.adobe.com/entry';
   const API_KEY = '8bc7a5a1-04bf-4d0e-8553-97237362cb7e';
 
   // Send data to API directly without proxy
