@@ -53,7 +53,7 @@ function handleSubmit(form) {
   const nameElement = form.querySelector('#form-name');
   const emailElement = form.querySelector('#form-email');
   const categoryElement = form.querySelector('#form-category');
-  
+
   // Create payload for API
   // Extract username part from email (everything before @)
   let emailValue = '';
@@ -61,74 +61,74 @@ function handleSubmit(form) {
     // Split the email at @ and take the first part
     emailValue = emailElement.value.split('@')[0] || '';
   }
-  
+
   const payload = {
-    "token_size": 0,
-    "prompt": messageElement ? messageElement.value : '',
-    "type": "site-user-form",
-    "path": nameElement ? nameElement.value : '',
-    "userid": emailValue, // Only use the part before @ in email
-    "version": categoryElement ? categoryElement.value : ''
+    token_size: 0,
+    prompt: messageElement ? messageElement.value : '',
+    type: 'site-user-form',
+    path: nameElement ? nameElement.value : '',
+    userid: emailValue, // Only use the part before @ in email
+    version: categoryElement ? categoryElement.value : '',
   };
-  
+
   // API endpoint and key
   const API_URL = 'http://acs-mcp.corp.adobe.com:8000/entry';
   const API_KEY = '8bc7a5a1-04bf-4d0e-8553-97237362cb7e';
-  
+
   // Send data to API directly without proxy
   fetch(API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'X-API-Key': API_KEY,
-      'Accept': 'application/json'
+      Accept: 'application/json',
     },
-    body: JSON.stringify(payload)
+    body: JSON.stringify(payload),
   })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
-  .then(() => {
-    // Create and show success message
-    const successMessage = document.createElement('div');
-    successMessage.className = 'form-success-message';
-    successMessage.textContent = 'Your form has been submitted successfully!';
-    form.parentNode.insertBefore(successMessage, form.nextSibling);
-    // Reset the form
-    form.reset();
-    // Remove success message after 5 seconds
-    setTimeout(() => {
-      successMessage.remove();
-    }, 5000);
-    // Optional: Scroll to success message
-    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  })
-  .catch((error) => {
-    // Create error message in case something fails
-    const errorMessage = document.createElement('div');
-    errorMessage.className = 'form-error-message';
-    
-    // Check if it's a CORS error (this is a common pattern for detecting CORS issues)
-    if (error.message.includes('NetworkError') || error.message.includes('CORS')) {
-      errorMessage.textContent = 'CORS error: Unable to connect to the server. This is likely a Cross-Origin Resource Sharing (CORS) issue.';
-      console.error('CORS error detected:', error);
-    } else {
-      errorMessage.textContent = 'Something went wrong. Please try again.';
-      console.error('Form submission error:', error);
-    }
-    
-    form.parentNode.insertBefore(errorMessage, form.nextSibling);
-    setTimeout(() => {
-      errorMessage.remove();
-    }, 5000);
-  })
-  .finally(() => {
-    form.dataset.submitting = 'false';
-    submit.disabled = false;
-  });
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(() => {
+      // Create and show success message
+      const successMessage = document.createElement('div');
+      successMessage.className = 'form-success-message';
+      successMessage.textContent = 'Your form has been submitted successfully!';
+      form.parentNode.insertBefore(successMessage, form.nextSibling);
+      // Reset the form
+      form.reset();
+      // Remove success message after 5 seconds
+      setTimeout(() => {
+        successMessage.remove();
+      }, 5000);
+      // Optional: Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch((error) => {
+      // Create error message in case something fails
+      const errorMessage = document.createElement('div');
+      errorMessage.className = 'form-error-message';
+
+      // Check if it's a CORS error (this is a common pattern for detecting CORS issues)
+      if (error.message.includes('NetworkError') || error.message.includes('CORS')) {
+        errorMessage.textContent = 'CORS error: Unable to connect to the server. This is likely a Cross-Origin Resource Sharing (CORS) issue.';
+        console.error('CORS error detected:', error);
+      } else {
+        errorMessage.textContent = 'Something went wrong. Please try again.';
+        console.error('Form submission error:', error);
+      }
+
+      form.parentNode.insertBefore(errorMessage, form.nextSibling);
+      setTimeout(() => {
+        errorMessage.remove();
+      }, 5000);
+    })
+    .finally(() => {
+      form.dataset.submitting = 'false';
+      submit.disabled = false;
+    });
 }
 
 /**
