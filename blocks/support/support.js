@@ -63,12 +63,12 @@ function handleSubmit(form) {
   }
 
   const payload = {
-    'token_size': 0,
-    'prompt': messageElement ? messageElement.value : '',
-    'type': 'site-user-form',
-    'path': nameElement ? nameElement.value : '',
-    'userid': emailValue, // Only use the part before @ in email
-    'version': categoryElement ? categoryElement.value : '',
+    token_size: 0,
+    prompt: messageElement ? messageElement.value : '',
+    type: 'site-user-form',
+    path: nameElement ? nameElement.value : '',
+    userid: emailValue, // Only use the part before @ in email
+    version: categoryElement ? categoryElement.value : '',
   };
 
   // API endpoint and key
