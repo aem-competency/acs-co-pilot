@@ -15,6 +15,14 @@
   flex: 0 0 53%;
 }
 
+/* Border radius for 2-column layout rows */
+.columns > div:has(> div:nth-child(2):last-child) {
+  border-radius: var(--acs-hero-border-radius);
+  box-shadow: var(--box-shadow-neon);
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
 .columns > div > .columns-img-col {
   order: 0;
 }
