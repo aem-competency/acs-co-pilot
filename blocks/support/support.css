@@ -143,3 +143,97 @@
 .section.support-container select:focus {
     box-shadow: var(--box-shadow-1);
 }
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(2px);
+}
+
+.modal-content {
+    background: var(--acs-copilot-form-input-filed-background);
+    border-radius: var(--acs-copilot-input-border-radius);
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+.modal-title {
+    color: var(--acs-copilot-primary-text-color);
+    font-size: var(--acs-copilot-font-size-h1);
+    font-weight: var(--acs-copilot-font-weight-h1);
+    margin: 0 0 15px 0;
+    text-shadow: var(--acs-copilot-text-shadow);
+}
+
+.modal-message {
+    color: var(--acs-copilot-primary-text-color);
+    font-size: var(--acs-copilot-list-font-size);
+    font-weight: var(--acs-copilot-button-container-font-weight);
+    margin: 0 0 25px 0;
+    line-height: 1.5;
+    text-shadow: var(--acs-copilot-text-shadow);
+}
+
+.modal-ok-button {
+    background: var(--acs-copilot-form-button-background);
+    color: var(--acs-copilot-body-text-color);
+    padding: var(--acs-copilot-button-padding-support);
+    border: none;
+    border-radius: var(--acs-copilot-input-border-radius);
+    font-size: var(--acs-copilot-list-font-size);
+    font-weight: var(--acs-copilot-font-weight-h4);
+    cursor: pointer;
+    min-width: 100px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.modal-ok-button:hover {
+    background: var(--acs-copilot-primary-bg-color);
+    transform: translateY(-1px);
+}
+
+.modal-ok-button:focus {
+    outline: 2px solid var(--acs-copilot-primary-bg-color);
+    outline-offset: 2px;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Responsive modal styles */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+    }
+    
+    .modal-message {
+        font-size: 0.9rem;
+    }
+}

@@ -38,6 +38,78 @@ export function generatePayload(form) {
 }
 
 /**
+ * Creates and shows a success modal with a message and OK button.
+ * @param {string} message - The success message to display.
+ * @param {Function} onConfirm - Callback function to execute when OK is clicked.
+ */
+function showSuccessModal(message, onConfirm) {
+  // Create modal overlay
+  const modalOverlay = document.createElement('div');
+  modalOverlay.className = 'modal-overlay';
+  modalOverlay.setAttribute('role', 'dialog');
+  modalOverlay.setAttribute('aria-modal', 'true');
+  modalOverlay.setAttribute('aria-labelledby', 'modal-title');
+
+  // Create modal content
+  const modalContent = document.createElement('div');
+  modalContent.className = 'modal-content';
+
+  // Create modal title
+  const modalTitle = document.createElement('h2');
+  modalTitle.id = 'modal-title';
+  modalTitle.className = 'modal-title';
+  modalTitle.textContent = 'Success';
+
+  // Create modal message
+  const modalMessage = document.createElement('p');
+  modalMessage.className = 'modal-message';
+  modalMessage.textContent = message;
+
+  // Create OK button
+  const okButton = document.createElement('button');
+  okButton.className = 'modal-ok-button';
+  okButton.textContent = 'OK';
+  okButton.type = 'button';
+
+  // Assemble modal
+  modalContent.appendChild(modalTitle);
+  modalContent.appendChild(modalMessage);
+  modalContent.appendChild(okButton);
+  modalOverlay.appendChild(modalContent);
+
+  // Add modal to document
+  document.body.appendChild(modalOverlay);
+
+  // Focus the OK button for accessibility
+  okButton.focus();
+
+  // Handle OK button click
+  okButton.addEventListener('click', () => {
+    document.body.removeChild(modalOverlay);
+    if (onConfirm) onConfirm();
+  });
+
+  // Handle ESC key press
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      document.body.removeChild(modalOverlay);
+      document.removeEventListener('keydown', handleKeyDown);
+      if (onConfirm) onConfirm();
+    }
+  };
+  document.addEventListener('keydown', handleKeyDown);
+
+  // Handle click outside modal
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      document.body.removeChild(modalOverlay);
+      document.removeEventListener('keydown', handleKeyDown);
+      if (onConfirm) onConfirm();
+    }
+  });
+}
+
+/**
  * Handles form submission, sends the form data as a JSON payload via a POST request.
  * @param {HTMLFormElement} form - The form element being submitted.
  */
@@ -91,19 +163,10 @@ function handleSubmit(form) {
       return response.json();
     })
     .then(() => {
-      // Create and show success message
-      const successMessage = document.createElement('div');
-      successMessage.className = 'form-success-message';
-      successMessage.textContent = 'Your form has been submitted successfully!';
-      form.parentNode.insertBefore(successMessage, form.nextSibling);
-      // Reset the form
-      form.reset();
-      // Remove success message after 5 seconds
-      setTimeout(() => {
-        successMessage.remove();
-      }, 5000);
-      // Optional: Scroll to success message
-      successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // Show success modal and reset form when OK is clicked
+      showSuccessModal('Your form has been submitted successfully!', () => {
+        form.reset();
+      });
     })
     .catch((error) => {
       // Create error message in case something fails
