@@ -21,17 +21,32 @@
 
 .columns p strong {
   color: #ff8585 !important;
+  font-size: 20px;
 }
 
 @media (width >= 900px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 22px;
   }
 
   .columns > div > div {
-    flex: 1;
     order: unset;
   }
+
+  .columns > div > div:first-child {
+    flex: 0 0 50%;
+    margin-right: 28px;
+  }
+
+  .columns > div > div:not(:first-child) {
+    flex: 1;
+    margin-right: 8px;
+  }
+
+  .columns > div > div:last-child {
+    margin-right: 0;
+  }
+
 }
