@@ -117,12 +117,12 @@ function showSuccessModal(message, onConfirm) {
 function validateForm(form) {
   // Remove any existing error messages
   const existingErrors = form.querySelectorAll('.field-error-message');
-  existingErrors.forEach(error => error.remove());
+  existingErrors.forEach((error) => error.remove());
 
   let isValid = true;
   const requiredFields = form.querySelectorAll('[required]');
-  
-  requiredFields.forEach(field => {
+
+  requiredFields.forEach((field) => {
     const fieldWrapper = field.closest('.field-wrapper');
     let isEmpty = false;
 
@@ -131,7 +131,7 @@ function validateForm(form) {
       // For checkboxes and radios, check if any in the group is checked
       const groupName = field.name;
       const groupFields = form.querySelectorAll(`[name="${groupName}"]`);
-      const isGroupChecked = Array.from(groupFields).some(f => f.checked);
+      const isGroupChecked = Array.from(groupFields).some((f) => f.checked);
       isEmpty = !isGroupChecked;
     } else {
       // For text inputs, textareas, selects
@@ -140,19 +140,19 @@ function validateForm(form) {
 
     if (isEmpty) {
       isValid = false;
-      
+
       // Create and show error message
       const errorMessage = document.createElement('div');
       errorMessage.className = 'field-error-message';
       errorMessage.textContent = 'This field is required';
       errorMessage.setAttribute('role', 'alert');
-      
+
       // Add error styling to field wrapper
       if (fieldWrapper) {
         fieldWrapper.classList.add('field-error');
         fieldWrapper.appendChild(errorMessage);
       }
-      
+
       // Add error styling to the field itself
       field.classList.add('error');
       field.setAttribute('aria-invalid', 'true');
@@ -250,9 +250,11 @@ function handleSubmit(form) {
       // Check if it's a CORS error (this is a common pattern for detecting CORS issues)
       if (error.message.includes('NetworkError') || error.message.includes('CORS')) {
         errorMessage.textContent = 'CORS error: Unable to connect to the server. This is likely a Cross-Origin Resource Sharing (CORS) issue.';
+        // eslint-disable-next-line no-console
         console.error('CORS error detected:', error);
       } else {
         errorMessage.textContent = 'Something went wrong. Please try again.';
+        // eslint-disable-next-line no-console
         console.error('Form submission error:', error);
       }
 
@@ -319,16 +321,16 @@ export default async function decorate(block) {
     if (field.classList.contains('error')) {
       const fieldWrapper = field.closest('.field-wrapper');
       const errorMessage = fieldWrapper?.querySelector('.field-error-message');
-      
+
       // Check if field now has value
       let hasValue = false;
       if (field.type === 'checkbox' || field.type === 'radio') {
         const groupFields = form.querySelectorAll(`[name="${field.name}"]`);
-        hasValue = Array.from(groupFields).some(f => f.checked);
+        hasValue = Array.from(groupFields).some((f) => f.checked);
       } else {
         hasValue = field.value && field.value.trim() !== '';
       }
-      
+
       // Clear error state if field now has value
       if (hasValue) {
         field.classList.remove('error');
@@ -347,16 +349,15 @@ export default async function decorate(block) {
   form.addEventListener('change', (e) => {
     const field = e.target;
     if ((field.type === 'checkbox' || field.type === 'radio') && field.required) {
-      const fieldWrapper = field.closest('.field-wrapper');
       const groupFields = form.querySelectorAll(`[name="${field.name}"]`);
-      const isGroupChecked = Array.from(groupFields).some(f => f.checked);
-      
+      const isGroupChecked = Array.from(groupFields).some((f) => f.checked);
+
       // Clear errors for all fields in the group if one is now checked
       if (isGroupChecked) {
-        groupFields.forEach(groupField => {
+        groupFields.forEach((groupField) => {
           const groupWrapper = groupField.closest('.field-wrapper');
           const errorMessage = groupWrapper?.querySelector('.field-error-message');
-          
+
           groupField.classList.remove('error');
           groupField.removeAttribute('aria-invalid');
           if (groupWrapper) {
