@@ -11,6 +11,10 @@
   order: 1;
 }
 
+.columns > div > div:first-child {
+  flex: 0 0 53%;
+}
+
 .columns > div > .columns-img-col {
   order: 0;
 }
@@ -28,7 +32,7 @@
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 22px;
+    gap: 7px;
   }
 
   .columns > div > div {
@@ -36,8 +40,8 @@
   }
 
   .columns > div > div:first-child {
-    flex: 0 0 50%;
-    margin-right: 28px;
+    flex: 0 0 53%;
+    margin-right: 32px;
   }
 
   .columns > div > div:not(:first-child) {
