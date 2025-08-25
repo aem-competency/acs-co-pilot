@@ -223,6 +223,47 @@
     }
 }
 
+/* Form validation error styles */
+.section.support-container .field-error-message {
+    color: #ff4444;
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+    text-shadow: none;
+    font-weight: 400;
+}
+
+.section.support-container .field-wrapper.field-error {
+    border-left: 3px solid #ff4444;
+    padding-left: 8px;
+    margin-left: -8px;
+}
+
+.section.support-container input.error,
+.section.support-container textarea.error,
+.section.support-container select.error {
+    border: 2px solid #ff4444;
+    box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+}
+
+.section.support-container input.error:focus,
+.section.support-container textarea.error:focus,
+.section.support-container select.error:focus {
+    box-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+    outline: none;
+}
+
+.section.support-container .form-error-message {
+    color: #ff4444;
+    background-color: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.3);
+    padding: 12px;
+    border-radius: var(--acs-copilot-input-border-radius);
+    margin: 16px 0;
+    font-size: 14px;
+    text-shadow: none;
+}
+
 /* Responsive modal styles */
 @media (width <= 768px) {
     .modal-content {

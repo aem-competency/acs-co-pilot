@@ -110,11 +110,85 @@ function showSuccessModal(message, onConfirm) {
 }
 
 /**
+ * Validates all required form fields and shows error messages for empty fields.
+ * @param {HTMLFormElement} form - The form element to validate.
+ * @returns {boolean} - True if all required fields are valid, false otherwise.
+ */
+function validateForm(form) {
+  // Remove any existing error messages
+  const existingErrors = form.querySelectorAll('.field-error-message');
+  existingErrors.forEach(error => error.remove());
+
+  let isValid = true;
+  const requiredFields = form.querySelectorAll('[required]');
+  
+  requiredFields.forEach(field => {
+    const fieldWrapper = field.closest('.field-wrapper');
+    let isEmpty = false;
+
+    // Check different field types for emptiness
+    if (field.type === 'checkbox' || field.type === 'radio') {
+      // For checkboxes and radios, check if any in the group is checked
+      const groupName = field.name;
+      const groupFields = form.querySelectorAll(`[name="${groupName}"]`);
+      const isGroupChecked = Array.from(groupFields).some(f => f.checked);
+      isEmpty = !isGroupChecked;
+    } else {
+      // For text inputs, textareas, selects
+      isEmpty = !field.value || field.value.trim() === '';
+    }
+
+    if (isEmpty) {
+      isValid = false;
+      
+      // Create and show error message
+      const errorMessage = document.createElement('div');
+      errorMessage.className = 'field-error-message';
+      errorMessage.textContent = 'This field is required';
+      errorMessage.setAttribute('role', 'alert');
+      
+      // Add error styling to field wrapper
+      if (fieldWrapper) {
+        fieldWrapper.classList.add('field-error');
+        fieldWrapper.appendChild(errorMessage);
+      }
+      
+      // Add error styling to the field itself
+      field.classList.add('error');
+      field.setAttribute('aria-invalid', 'true');
+    } else {
+      // Remove error styling if field is now valid
+      if (fieldWrapper) {
+        fieldWrapper.classList.remove('field-error');
+      }
+      field.classList.remove('error');
+      field.removeAttribute('aria-invalid');
+    }
+  });
+
+  // If validation failed, scroll to first error field
+  if (!isValid) {
+    const firstErrorField = form.querySelector('.field-error [required]');
+    if (firstErrorField) {
+      firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      firstErrorField.focus();
+    }
+  }
+
+  return isValid;
+}
+
+/**
  * Handles form submission, sends the form data as a JSON payload via a POST request.
  * @param {HTMLFormElement} form - The form element being submitted.
  */
 function handleSubmit(form) {
   if (form.dataset.submitting === 'true') return;
+
+  // Validate form before submission
+  if (!validateForm(form)) {
+    return;
+  }
 
   const submit = form.querySelector('button[type="submit"]');
   form.dataset.submitting = 'true';
@@ -238,6 +312,63 @@ export default async function decorate(block) {
       input.parentNode.replaceChild(textarea, input);
     }
   }, 0);
+
+  // Add real-time validation - clear errors when user starts typing
+  form.addEventListener('input', (e) => {
+    const field = e.target;
+    if (field.classList.contains('error')) {
+      const fieldWrapper = field.closest('.field-wrapper');
+      const errorMessage = fieldWrapper?.querySelector('.field-error-message');
+      
+      // Check if field now has value
+      let hasValue = false;
+      if (field.type === 'checkbox' || field.type === 'radio') {
+        const groupFields = form.querySelectorAll(`[name="${field.name}"]`);
+        hasValue = Array.from(groupFields).some(f => f.checked);
+      } else {
+        hasValue = field.value && field.value.trim() !== '';
+      }
+      
+      // Clear error state if field now has value
+      if (hasValue) {
+        field.classList.remove('error');
+        field.removeAttribute('aria-invalid');
+        if (fieldWrapper) {
+          fieldWrapper.classList.remove('field-error');
+        }
+        if (errorMessage) {
+          errorMessage.remove();
+        }
+      }
+    }
+  });
+
+  // Also handle change events for checkboxes and radio buttons
+  form.addEventListener('change', (e) => {
+    const field = e.target;
+    if ((field.type === 'checkbox' || field.type === 'radio') && field.required) {
+      const fieldWrapper = field.closest('.field-wrapper');
+      const groupFields = form.querySelectorAll(`[name="${field.name}"]`);
+      const isGroupChecked = Array.from(groupFields).some(f => f.checked);
+      
+      // Clear errors for all fields in the group if one is now checked
+      if (isGroupChecked) {
+        groupFields.forEach(groupField => {
+          const groupWrapper = groupField.closest('.field-wrapper');
+          const errorMessage = groupWrapper?.querySelector('.field-error-message');
+          
+          groupField.classList.remove('error');
+          groupField.removeAttribute('aria-invalid');
+          if (groupWrapper) {
+            groupWrapper.classList.remove('field-error');
+          }
+          if (errorMessage) {
+            errorMessage.remove();
+          }
+        });
+      }
+    }
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
