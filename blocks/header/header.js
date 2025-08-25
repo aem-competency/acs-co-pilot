@@ -118,7 +118,7 @@ function wrapImgsInLinks(container) {
 function increaseNavFontSize(nav) {
   const navItems = nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li > a');
   navItems.forEach((link) => {
-    link.style.fontSize = '24px';
+    link.style.fontSize = '20px';
     link.style.fontWeight = 'none';
   });
   const dropdownItems = nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li > ul > li > a');
