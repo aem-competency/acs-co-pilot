@@ -3,16 +3,16 @@ export default function decorate(block) {
   const cardData = Array.from(block.querySelectorAll(':scope > div')).map((card) => {
     const titleElement = card.querySelector('h2');
     const title = titleElement ? titleElement.textContent.trim() : '';
-    
+
     // Get all paragraph elements that contain strong tags (bullet points)
     const bulletPoints = Array.from(card.querySelectorAll('p')).map((p) => {
       const strongElement = p.querySelector('strong');
       return strongElement ? strongElement.textContent.trim() : p.textContent.trim();
-    }).filter(text => text !== ''); // Remove empty strings
-    
+    }).filter((text) => text !== ''); // Remove empty strings
+
     return {
       title,
-      bulletPoints
+      bulletPoints,
     };
   });
 
