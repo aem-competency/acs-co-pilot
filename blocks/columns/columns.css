@@ -13,6 +13,8 @@
 
 .columns > div > div:first-child {
   flex: 0 0 53%;
+  border-right: 1px solid #e0e0e0;
+  padding-right: 16px;
 }
 
 /* Border radius for 2-column layout rows */
@@ -40,7 +42,7 @@
   .columns > div {
     align-items: center;
     flex-direction: unset;
-    gap: 7px;
+    gap: 2px;
   }
 
   .columns > div > div {
