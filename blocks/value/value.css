@@ -2,7 +2,7 @@
   background: var(--acs-body-background);
   color: var(--acs-copilot-body-text-color);
   font-family: var(--body-font-family);
-  padding: 2rem;
+  padding: 0.5rem;
 }
 
 .value .value-container {
@@ -80,7 +80,7 @@
   }
   
   .value {
-    padding: 1.5rem;
+    padding: 0.5rem;
   }
   
   .value .value-card {
