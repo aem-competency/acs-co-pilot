@@ -273,3 +273,28 @@ header nav .nav-tools {
 header nav .nav-tools .search {
   display: none;
 }
+
+/* Navigation font sizing - replaces JavaScript setTimeout */
+header nav .nav-sections .default-content-wrapper > ul > li > a {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+  font-size: 22px;
+}
+
+/* Progressive loading states - prevents flash of missing content */
+.section[data-section-status="initialized"] {
+  opacity: 0.3;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.section[data-section-status="loaded"] {
+  opacity: 1;
+}
+
+/* Prevent layout shift during header loading */
+header .section {
+  min-height: var(--nav-height, 64px);
+}
