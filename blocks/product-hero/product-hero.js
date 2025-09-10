@@ -42,10 +42,40 @@ function styleSubtitleParagraph(block) {
   });
 }
 
+// Function to add button container and button classes
+function addButtonContainerAndClasses(block) {
+  // Find all paragraphs in the block
+  const paragraphs = block.querySelectorAll('p');
+
+  paragraphs.forEach((paragraph) => {
+    // Check if paragraph contains both "Download" and "Full Demo" links
+    const downloadLink = paragraph.querySelector('a[title="Download"]');
+    const fullDemoLink = paragraph.querySelector('a[title="Full Demo"]');
+
+    if (downloadLink && fullDemoLink) {
+      // Add button class to both links
+      downloadLink.classList.add('button');
+      fullDemoLink.classList.add('button');
+
+      // Create button container div
+      const buttonContainer = document.createElement('div');
+      buttonContainer.classList.add('button-container');
+
+      // Insert the button container before the paragraph
+      paragraph.parentNode.insertBefore(buttonContainer, paragraph);
+
+      // Move the paragraph inside the button container
+      buttonContainer.appendChild(paragraph);
+    }
+  });
+}
+
 // Main function to decorate the block by adding styling and embedding video
 export default function decorate(block) {
   // Style the subtitle paragraph
   styleSubtitleParagraph(block);
+  // Add button container and button classes
+  addButtonContainerAndClasses(block);
   // Handle video embedding
   handleVideoEmbedding(block);
 }
