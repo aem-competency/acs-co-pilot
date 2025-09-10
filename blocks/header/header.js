@@ -115,17 +115,6 @@ function wrapImgsInLinks(container) {
     }
   });
 }
-function increaseNavFontSize(nav) {
-  const navItems = nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li > a');
-  navItems.forEach((link) => {
-    link.style.fontSize = '20px';
-    link.style.fontWeight = 'none';
-  });
-  const dropdownItems = nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li > ul > li > a');
-  dropdownItems.forEach((link) => {
-    link.style.fontSize = '22px';
-  });
-}
 
 /**
  * loads and decorates the header, mainly the nav
@@ -143,7 +132,6 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   nav.append(...fragment.children);
-  setTimeout(() => increaseNavFontSize(nav), 100);
 
   ['brand', 'tools', 'sections'].forEach((c, i) => {
     const section = nav.children[i];

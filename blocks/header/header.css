@@ -141,8 +141,10 @@ header .section.nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
-  padding: 3px 16px;
+  padding: 0 16px;
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 header nav .nav-brand img {
@@ -157,6 +159,7 @@ header nav .section.nav-sections {
   display: none;
   visibility: hidden;
   margin: 0;
+  align-items: center;
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -188,14 +191,15 @@ header nav .nav-brand > .default-content-wrapper > p > a:hover {
   }
 
   header nav .nav-sections {
-    display: block;
+    display: flex;
     visibility: visible;
     white-space: nowrap;
+    align-items: center;
   }
 
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
-    margin-top: 15px;
+    margin-top: 22px;
   }
 
   header nav .nav-sections .nav-drop {
@@ -267,9 +271,36 @@ header nav .nav-brand > .default-content-wrapper > p > a:hover {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+  display: flex;
+  align-items: center;
 }
 
 /* Hide search in nav tools */
 header nav .nav-tools .search {
   display: none;
+}
+
+/* Navigation font sizing - replaces JavaScript setTimeout */
+header nav .nav-sections .default-content-wrapper > ul > li > a {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+header nav .nav-sections .default-content-wrapper > ul > li > ul > li > a {
+  font-size: 22px;
+}
+
+/* Progressive loading states - prevents flash of missing content */
+.section[data-section-status="initialized"] {
+  opacity: 0.3;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.section[data-section-status="loaded"] {
+  opacity: 1;
+}
+
+/* Prevent layout shift during header loading */
+header .section {
+  min-height: var(--nav-height, 64px);
 }
