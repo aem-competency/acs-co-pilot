@@ -1,6 +1,8 @@
 .detail > div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
+  padding: 16px;
 }
 
 .detail img {
@@ -9,14 +11,6 @@
 
 .detail > div > div {
   order: 1;
-}
-
-/* Border radius for layout rows */
-.detail > div {
-  border-radius: var(--acs-hero-border-radius);
-  box-shadow: var(--box-shadow-neon);
-  margin-bottom: 16px;
-  padding: 16px;
 }
 
 .detail > div > .detail-img-col {
