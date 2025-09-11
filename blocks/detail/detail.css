@@ -1,0 +1,40 @@
+.detail > div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  padding: 16px;
+}
+
+.detail img {
+  width: 100%;
+}
+
+.detail > div > div {
+  order: 1;
+}
+
+.detail > div > .detail-img-col {
+  order: 0;
+}
+
+.detail > div > .detail-img-col img {
+  display: block;
+}
+
+.detail p strong {
+  color: #ff8585 !important;
+  font-size: 20px;
+}
+
+@media (width >= 900px) {
+  .detail > div {
+    align-items: center;
+    flex-direction: unset;
+    gap: 16px;
+  }
+
+  .detail > div > div {
+    order: unset;
+    flex: 1; /* Equal width distribution */
+  }
+}
