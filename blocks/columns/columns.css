@@ -40,23 +40,28 @@
 
 @media (width >= 900px) {
   .columns > div {
+    /* Align all columns horizontally */
     align-items: center;
     flex-direction: unset;
-    gap: 2px;
+    gap: 16px;
   }
 
   .columns > div > div {
     order: unset;
+    display: flex;
+    flex-direction: column;
   }
 
   .columns > div > div:first-child {
     flex: 0 0 53%;
     margin-right: 32px;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 16px;
   }
 
   .columns > div > div:not(:first-child) {
     flex: 1;
-    margin-right: 8px;
+    margin-right: 16px;
   }
 
   .columns > div > div:last-child {
