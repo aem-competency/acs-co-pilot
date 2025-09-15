@@ -13,7 +13,6 @@
 
 .columns > div > div:first-child {
   flex: 0 0 53%;
-  border-right: 1px solid #e0e0e0;
   padding-right: 16px;
 }
 
@@ -41,9 +40,21 @@
 @media (width >= 900px) {
   .columns > div {
     /* Align all columns horizontally */
-    align-items: center;
+    align-items: stretch;
     flex-direction: unset;
     gap: 16px;
+    position: relative;
+  }
+  
+  /* Add vertical separator line */
+  .columns > div::after {
+    content: "";
+    position: absolute;
+    left: calc(53% + 16px);
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #e0e0e0;
   }
 
   .columns > div > div {
@@ -55,7 +66,6 @@
   .columns > div > div:first-child {
     flex: 0 0 53%;
     margin-right: 32px;
-    border-right: 1px solid #e0e0e0;
     padding-right: 16px;
   }
 
