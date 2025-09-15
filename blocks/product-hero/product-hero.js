@@ -50,10 +50,10 @@ function addButtonContainerAndClasses(block) {
   paragraphs.forEach((paragraph) => {
     // Check if paragraph contains links with title attributes
     const links = paragraph.querySelectorAll('a[title]');
-    
+
     if (links.length >= 2) {
       // Add button class to all links with title attributes
-      links.forEach(link => {
+      links.forEach((link) => {
         link.classList.add('button');
       });
 
