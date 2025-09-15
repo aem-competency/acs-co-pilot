@@ -40,7 +40,7 @@
 @media (width >= 900px) {
   .columns > div {
     /* Align all columns horizontally */
-    align-items: stretch;
+    align-items: center; /* Change from stretch to center to align content horizontally */
     flex-direction: unset;
     gap: 16px;
     position: relative;
@@ -61,6 +61,7 @@
     order: unset;
     display: flex;
     flex-direction: column;
+    justify-content: center; /* Center content vertically */
   }
 
   .columns > div > div:first-child {
@@ -72,6 +73,10 @@
   .columns > div > div:not(:first-child) {
     flex: 1;
     margin-right: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically instead of aligning at top */
+    align-items: center; /* Center content horizontally */
   }
 
   .columns > div > div:last-child {
