@@ -48,14 +48,14 @@ function addButtonContainerAndClasses(block) {
   const paragraphs = block.querySelectorAll('p');
 
   paragraphs.forEach((paragraph) => {
-    // Check if paragraph contains both "Download" and "Full Demo" links
-    const downloadLink = paragraph.querySelector('a[title="Download"]');
-    const fullDemoLink = paragraph.querySelector('a[title="Full Demo"]');
-
-    if (downloadLink && fullDemoLink) {
-      // Add button class to both links
-      downloadLink.classList.add('button');
-      fullDemoLink.classList.add('button');
+    // Check if paragraph contains links with title attributes
+    const links = paragraph.querySelectorAll('a[title]');
+    
+    if (links.length >= 2) {
+      // Add button class to all links with title attributes
+      links.forEach(link => {
+        link.classList.add('button');
+      });
 
       // Create button container div
       const buttonContainer = document.createElement('div');
