@@ -776,7 +776,7 @@ main {
   .section {
     padding: 0 16px;
     margin-top: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .section:not([data-section-status="loaded"]) {
