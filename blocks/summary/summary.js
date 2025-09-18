@@ -44,11 +44,9 @@ function equalizeButtonWidths(block) {
   buttonContainers.forEach((container) => {
     // Find all buttons in this container
     const buttons = container.querySelectorAll('a.button');
-    
     if (buttons.length >= 2) {
       // Find the maximum width among all buttons
       let maxWidth = 0;
-      
       // First pass: measure all buttons
       buttons.forEach((button) => {
         // Reset any previously set width to get natural width
@@ -56,7 +54,6 @@ function equalizeButtonWidths(block) {
         const buttonWidth = button.offsetWidth;
         maxWidth = Math.max(maxWidth, buttonWidth);
       });
-      
       // Second pass: set all buttons to the maximum width
       buttons.forEach((button) => {
         button.style.width = `${maxWidth}px`;
@@ -72,12 +69,10 @@ function equalizeButtonWidths(block) {
 export default function decorate(block) {
   // Add button container and button classes
   addButtonContainerAndClasses(block);
-  
   // Equalize button widths after DOM is fully rendered
   window.addEventListener('load', () => {
     equalizeButtonWidths(block);
   });
-  
   // Also equalize button widths after a short delay to ensure styles are applied
   setTimeout(() => {
     equalizeButtonWidths(block);
