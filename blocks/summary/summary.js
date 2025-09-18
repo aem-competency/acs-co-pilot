@@ -9,10 +9,10 @@ function addButtonContainerAndClasses(block) {
   paragraphs.forEach((paragraph) => {
     // Check if paragraph contains links with title attributes
     const links = paragraph.querySelectorAll('a[title]');
-    
+
     // Also check for links without title attributes as they might still need to be styled
     const allLinks = paragraph.querySelectorAll('a');
-    
+
     // Process if there are 2 or more links in the paragraph
     if (links.length >= 2 || allLinks.length >= 2) {
       // Add button class to all links
