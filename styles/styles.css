@@ -775,8 +775,9 @@ main {
 
   .section {
     padding: 0 16px;
-    margin: 30px;
-
+    margin-top: 20px;
+    margin-bottom: 15px;
+    }
     /* section metadata */
   }
 
