@@ -57,6 +57,19 @@
   
 }
 
+/* Button container styling */
+.summary .button-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 15px; /* Maintain spacing between buttons */
+}
+
+/* Button styling - width will be set by JavaScript */
+.summary .button-container a.button {
+  flex: 0 0 auto;
+}
+
 .summary.highlight {
   p {
     strong{
