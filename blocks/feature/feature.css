@@ -9,7 +9,6 @@
 
 .feature {
   align-items: center;
-  margin: var(--acs-feature-margin);
 }
 
 /* Video styling */
@@ -58,6 +57,10 @@ media position for even-numbered feature sections */
   font-size: var(--acs-feature-content-p-font-size);
   line-height: var(--acs-feature-content-p-line-height);
   font-style: var(--acs-feature-content-p-font-style);
+}
+
+.feature-header{
+  margin-bottom: 55px;
 }
 
 /* Hover effect on video */
@@ -116,7 +119,7 @@ media position for even-numbered feature sections */
 
 .feature .text-container {
   flex: 1;
-  padding: var(--acs-feature-content-padding);
+  padding-left: 70px;
 }
 
 
