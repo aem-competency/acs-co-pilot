@@ -26,6 +26,7 @@ export default function decorate(block) {
     'Enhancements – ACS Co-Pilot': { top: '28%', left: '60.5%' },
     'Bug Fixes– ACS Co-Pilot': { top: '32%', left: '57.5%' },
     'Audit – CodeReview.AI': { top: '40%', left: '57%' },
+    'UI – ACS Co-Pilot': { top: '64%', left: '44%' },
     'TDD – ACS Co-Pilot': { top: '67.5%', left: '45%' },
     'Test Cases – ACS Co-Pilot': { top: '56.5%', left: '68.5%' },
     'Test Scripts – ACS Co-Pilot': { top: '60.5%', left: '68.5%' },
