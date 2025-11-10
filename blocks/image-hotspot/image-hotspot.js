@@ -1,12 +1,12 @@
 export default function decorate(block) {
   const rows = Array.from(block.children);
-  
+
   if (rows.length === 0) {
     return;
   }
 
   const imageWrapper = block.querySelector('picture');
-  
+
   if (!imageWrapper) {
     return;
   }
@@ -60,7 +60,7 @@ export default function decorate(block) {
   // Create overlay hotspots on the image
   hotspots.forEach((hotspot) => {
     const position = positionMap[hotspot.text];
-    
+
     if (position) {
       const overlay = document.createElement('a');
       overlay.className = 'image-hotspot-overlay';
@@ -70,7 +70,7 @@ export default function decorate(block) {
       overlay.setAttribute('aria-label', hotspot.text);
       overlay.style.top = position.top;
       overlay.style.left = position.left;
-      
+
       imageSection.appendChild(overlay);
     }
   });
