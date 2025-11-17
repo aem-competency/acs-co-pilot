@@ -60,12 +60,12 @@
 }
 
 .table-content tbody tr:hover {
-  background-color: rgba(154, 71, 226, 0.1);
+  background-color: rgb(154 71 226 / 10%);
   transition: background-color 0.3s ease;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .table-container {
     padding: 10px;
   }
@@ -81,7 +81,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
   .table-content {
     font-size: 14px;
   }
