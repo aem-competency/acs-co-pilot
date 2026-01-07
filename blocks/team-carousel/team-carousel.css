@@ -40,13 +40,6 @@
   justify-content: center;
 }
 
-.team-carousel-card-image .experience-cards-container {
-  flex: 3;
-  display: flex;
-  align-items: flex-start;
-  width: 100%;
-}
-
 .team-carousel-card-image img {
   width: 150px;
   height: 150px;
@@ -67,7 +60,7 @@
 
 .team-carousel-card-content h2,
 .team-carousel-card-content h3 {
-  margin: 10px 0 -10px 0;
+  margin: 10px 0 -10px;
 }
 
 .team-carousel-card-content p {
@@ -79,6 +72,13 @@
   gap: 15px;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.team-carousel-card-image .experience-cards-container {
+  flex: 3;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .experience-card {
