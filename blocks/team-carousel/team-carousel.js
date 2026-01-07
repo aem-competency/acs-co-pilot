@@ -3,12 +3,12 @@ export default function decorate(block) {
   const slidesData = Array.from(block.querySelectorAll(':scope > div')).map((slide) => {
     const secondDiv = slide.querySelector(':scope > div:nth-child(2)');
     const allParagraphs = Array.from(secondDiv.querySelectorAll('p'));
-    
+
     // Get the experience value from the last paragraph
-    const experienceValue = allParagraphs.length > 0 
-      ? allParagraphs[allParagraphs.length - 1].textContent.trim() 
+    const experienceValue = allParagraphs.length > 0
+      ? allParagraphs[allParagraphs.length - 1].textContent.trim()
       : '20+ Years';
-    
+
     return {
       picture: slide.querySelector('picture'),
       heading: secondDiv.firstElementChild,
