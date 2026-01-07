@@ -1,7 +1,7 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .slides-wrapper {
@@ -26,31 +26,126 @@
 .team-carousel-card-image {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  gap: 15px;
+  height: 100%;
+}
+
+.team-carousel-card-image picture {
+  flex: 7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-carousel-card-image .experience-cards-container {
+  flex: 3;
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
 }
 
 .team-carousel-card-image img {
-  width: 288px;
-  height: 224.25px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #555;
 }
 
 .team-carousel-card-content {
   flex: 2;
-  padding: 20px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 15px;
+  margin-left: 0;
 }
 
 .team-carousel-card-content h2,
 .team-carousel-card-content h3 {
-  margin: 10px 0;
+  margin: 10px 0 -10px 0;
 }
 
 .team-carousel-card-content p {
   margin: 5px 0;
+}
+
+.experience-cards-container {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.experience-card {
+  background: linear-gradient(135deg, rgb(50 50 60) 0%, rgb(40 40 50) 100%);
+  border: 1px solid rgb(80 80 90);
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 50%);
+  border-color: rgb(100 100 110);
+}
+
+.experience-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  color: #dadada;
+}
+
+.experience-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.experience-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: #dadada;
+}
+
+.experience-text {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  flex: 1;
+}
+
+.experience-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: #cbd5e1;
+  text-align: left;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.experience-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #f1f5f9;
+  text-align: left;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .carousel-nav-container {
@@ -95,21 +190,23 @@ img.carousel-indicator {
     text-align: left;
   }
 
-  .team-carousel-card-image,
-  .team-carousel-card-content {
-    flex: 1;
+  .team-carousel-card-image {
+    flex: 0 0 auto;
+    max-width: 350px;
   }
 
   .team-carousel-card-content {
-    padding-left: 20px;
+    flex: 1;
+    padding: 0 20px;
+    margin-left: 50px;
   }
 
   .carousel-nav-container {
     flex-direction: column;
     position: absolute;
-    bottom: 20%;
-    float: right;
-    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -15px;
   }
 
   .carousel-indicators {
@@ -117,7 +214,7 @@ img.carousel-indicator {
   }
 
   .team-carousel-card-image img {
-    width: 400px;
-    height: auto;
+    width: 180px;
+    height: 180px;
   }
 }
