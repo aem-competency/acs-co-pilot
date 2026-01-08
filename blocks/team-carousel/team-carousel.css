@@ -85,13 +85,13 @@
   background: linear-gradient(135deg, rgb(50 50 60) 0%, rgb(40 40 50) 100%);
   border: 1px solid rgb(80 80 90);
   border-radius: 12px;
-  padding: 12px 16px;
+  padding: 7px 16px;
   width: 100%;
   max-width: 200px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   box-shadow: 0 2px 8px rgb(0 0 0 / 30%);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -106,19 +106,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 36px;
-  height: 36px;
+  min-width: 32px;
+  height: 32px;
   color: #dadada;
 }
 
 .experience-icon img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
 }
 
 .experience-icon svg {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   stroke: #dadada;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .experience-value {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
   color: #f1f5f9;
   text-align: left;
