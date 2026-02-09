@@ -28,7 +28,7 @@ export default function decorate(block) {
     'Audit – CodeReview.AI': { top: '40%', left: '57%' },
     'UI – ACS Co-Pilot': { top: '64%', left: '44%' },
     'TDD – ACS Co-Pilot': { top: '67.5%', left: '45%' },
-    'Design Review': { top: '72%', left: '49.75%' },
+    'Design Review': { top: '72%', left: '50.5%' },
     'Test Cases – ACS Co-Pilot': { top: '56.5%', left: '68.5%' },
     'Test Scripts – ACS Co-Pilot': { top: '60.5%', left: '68.5%' },
     'Extraction – ACS Migration F/W, EC': { top: '27.5%', left: '83.5%' },
