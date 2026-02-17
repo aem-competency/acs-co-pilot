@@ -21,6 +21,8 @@ export default function decorate(block) {
     'BRD – ACS Co-Pilot, Microsoft Studio': { top: '23.5%', left: '42.5%' },
     'Backlog Gen – ACS Co-Pilot': { top: '27.5%', left: '39.5%' },
     'Story / AC – ACS Co-Pilot': { top: '31.5%', left: '37.5%' },
+    'Code to BRD – ACS Co-Pilot': { top: '35.5%', left: '39%' },
+    'Solution Design – ACS Co-Pilot': { top: '39.5%', left: '40%' },
     'Code Gen – ACS Co-Pilot': { top: '20%', left: '58.5%' },
     'Optimization– ACS Co-Pilot': { top: '24%', left: '59.5%' },
     'Enhancements – ACS Co-Pilot': { top: '28%', left: '60.5%' },
