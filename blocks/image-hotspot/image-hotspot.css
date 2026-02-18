@@ -45,6 +45,16 @@
   z-index: 10;
 }
 
+.image-hotspot-overlay.hotspot-red {
+  background: #ff8c00;
+  box-shadow: 0 0 8px rgb(255 140 0 / 60%);
+}
+
+.image-hotspot-overlay.hotspot-red:hover {
+  background: #ff8c00;
+  box-shadow: 0 0 12px rgb(255 140 0 / 80%);
+}
+
 @keyframes blink {
   0%, 100% {
     opacity: 1;
