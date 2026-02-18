@@ -63,13 +63,22 @@ export default function decorate(block) {
     });
   });
 
+  // Hotspots that should appear in red instead of purple
+  const redHotspots = new Set([
+    'Proposal Deck – Acrobat Studio',
+    'Monitor – Site Optimizer',
+    'Monitor – LLM Optimizer',
+  ]);
+
   // Create overlay hotspots on the image
   hotspots.forEach((hotspot) => {
     const position = positionMap[hotspot.text];
 
     if (position) {
       const overlay = document.createElement('a');
-      overlay.className = 'image-hotspot-overlay';
+      overlay.className = redHotspots.has(hotspot.text)
+        ? 'image-hotspot-overlay hotspot-red'
+        : 'image-hotspot-overlay';
       overlay.href = hotspot.url;
       overlay.target = '_blank';
       overlay.rel = 'noopener noreferrer';
