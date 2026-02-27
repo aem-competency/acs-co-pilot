@@ -27,7 +27,7 @@ export default function decorate(block) {
     'Optimization– ACS Co-Pilot': { top: '24%', left: '59.5%' },
     'Enhancements – ACS Co-Pilot': { top: '28%', left: '60.5%' },
     'Bug Fixes– ACS Co-Pilot': { top: '32%', left: '57.5%' },
-    'Audit – CodeReview.AI': { top: '40%', left: '57%' },
+    'Audit – CodeReview.AI': { top: '40%', left: '60%' },
     'Figma to Jira Story – ACS Co-Pilot': { top: '56%', left: '51.5%' },
     'Figma to BRD – ACS Co-Pilot': { top: '60%', left: '49.5%' },
     'UI – ACS Co-Pilot': { top: '67.5%', left: '44%' },
