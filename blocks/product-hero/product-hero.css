@@ -150,6 +150,96 @@
     opacity: var(--acs-hero-glow-opacity);
   }
 
+/* Patent innovation badge — centre variation only */
+.product-hero.centre .patent-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: linear-gradient(135deg, rgb(0 14 34 / 90%) 0%, rgb(15 5 40 / 92%) 100%);
+    border: 1.5px solid transparent;
+    background-clip: padding-box;
+    border-radius: 12px;
+    padding: 8px 12px;
+    min-width: 180px;
+    max-width: 220px;
+    box-shadow: var(--box-shadow-neon), inset 0 0 0 1.5px rgb(154 71 226 / 50%);
+    backdrop-filter: blur(8px);
+}
+
+.product-hero.centre .patent-badge-body {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-hero.centre .patent-badge-count {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    flex-shrink: 0;
+    background: var(--gradient-color);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.product-hero.centre .patent-badge-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+}
+
+.product-hero.centre .patent-badge-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.product-hero.centre .patent-badge-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.product-hero.centre .patent-badge-star {
+    background: var(--gradient-color);
+    color: #fff;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px rgb(200 50 250 / 60%);
+}
+
+.product-hero.centre .patent-badge-desc {
+    font-size: 11px;
+    color: var(--acs-copilot-body-text-secondary-color);
+    line-height: 1.3;
+}
+
+@media (width <= 768px) {
+    .product-hero.centre .patent-badge {
+        top: 8px;
+        right: 8px;
+        min-width: 180px;
+        max-width: 200px;
+        padding: 10px 12px;
+    }
+
+    .product-hero.centre .patent-badge-count {
+        font-size: 36px;
+    }
+}
+
 /* Media queries for responsiveness */
 @media (width <= 768px) {
     .product-hero h1 {
