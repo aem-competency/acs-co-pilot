@@ -180,8 +180,7 @@
     flex-shrink: 0;
     background: var(--gradient-color);
     background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
 .product-hero.centre .patent-badge-info {
