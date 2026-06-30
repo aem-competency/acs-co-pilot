@@ -70,33 +70,6 @@ function addButtonContainerAndClasses(block) {
   });
 }
 
-// Adds the hardcoded patent innovation badge for the centre variation only
-function addPatentBadge(block) {
-  if (!block.classList.contains('centre')) return;
-
-  const badge = document.createElement('div');
-  badge.classList.add('patent-badge');
-  badge.innerHTML = `
-    <div class="patent-badge-body">
-      <span class="patent-badge-count">2</span>
-      <div class="patent-badge-info">
-        <div class="patent-badge-title-row">
-          <span class="patent-badge-title">Patents</span>
-          <span class="patent-badge-star">&#9733;</span>
-        </div>
-        <span class="patent-badge-desc">Approved for Filing</span>
-      </div>
-    </div>
-  `;
-  // Append inside the background container so the badge is bounded by the video
-  const bgContainer = block.querySelector(':scope > div > div:first-of-type');
-  if (bgContainer) {
-    bgContainer.appendChild(badge);
-  } else {
-    block.appendChild(badge);
-  }
-}
-
 // Main function to decorate the block by adding styling and embedding video
 export default function decorate(block) {
   // Style the subtitle paragraph
@@ -105,6 +78,4 @@ export default function decorate(block) {
   addButtonContainerAndClasses(block);
   // Handle video embedding
   handleVideoEmbedding(block);
-  // Patent badge (centre variation, home page only)
-  addPatentBadge(block);
 }
